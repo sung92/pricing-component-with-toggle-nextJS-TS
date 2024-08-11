@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { CheckBoxProvider } from "./contexts/CheckBox";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="grid h-full min-h-dvh place-content-center bg-bg bg-[url('./images/bg-top.svg')] bg-[right_-190px_top_0px] bg-no-repeat px-[18px] py-[48px] text-[15px] desktop:bg-[url('./images/bg-top.svg'),_url(./images/bg-bottom.svg)] desktop:bg-[position:right_-50px_top_0px,_bottom_0px_left_0px]">
+        <CheckBoxProvider>{children}</CheckBoxProvider>
+      </body>
     </html>
   );
 }
